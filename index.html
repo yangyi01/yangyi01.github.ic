@@ -104,6 +104,88 @@
         
           <section id="main">
   
+    <article id="post-笔记03" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/12/04/笔记03/">笔记03</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/12/04/笔记03/" class="article-date">
+	  <time datetime="2018-12-04T12:19:34.000Z" itemprop="datePublished">December 4, 2018</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">SQL 命令</span><br><span class="line"> 标准SQL 语句分类</span><br><span class="line">  DDL：Data Define Language    定于数据结构</span><br><span class="line">      CREATE/DROP/ALTER</span><br><span class="line"></span><br><span class="line">   DML:Data Munipulate Language   操作数据</span><br><span class="line">        INSERT/DELETE/UPDATE </span><br><span class="line"></span><br><span class="line">   DQL：Data Query  Language  查询数据</span><br><span class="line">        SELECT</span><br><span class="line"></span><br><span class="line">   DCL:Data Contorl Language 控制用户权限</span><br><span class="line">      GRANT（授权）/REVOKE(收权）</span><br><span class="line"></span><br><span class="line"> 查询结果</span><br><span class="line">1 计算机存储字符</span><br><span class="line"> （1）如何存储英文字符</span><br><span class="line">           ASCII :总共128个，对所有的英文字符以及标点符号进行了编码。</span><br><span class="line">     Latin-1：总共有256个字母，兼容ASCLL码，同时对欧洲符号进行了编码，MySQL默认就使用这种编码。</span><br><span class="line"></span><br><span class="line"> （2）如何存储中文字符</span><br><span class="line">          GB2312：   对常用的6000多汉字进行了编码，兼容ASCII编码</span><br><span class="line">          GBK：对两万多个汉字进行了编码，兼容GB2312</span><br><span class="line">          BIG5：台湾繁体字编码，兼容ASCII</span><br><span class="line">          Unicode：对世界上主流的语言常用的字符进行了编码，兼容ASCII，不兼容GBK 、GB2312、BIG5 等系列。</span><br><span class="line">    具体分为UTF-8，UTF-16，UTF-32等存储方案。</span><br><span class="line"> （3） 解决MySQL存储中文乱码</span><br><span class="line">        sql 脚本文件存储的编码为utf8</span><br><span class="line">        客户端连接服务器端使用的编码为 utf8</span><br><span class="line">        服务器端创建数据库存储使用的编码为utf8</span><br><span class="line">2. MySQL中的列类型</span><br><span class="line">       创建数据表的时候，指定的列可以存储的数据类型。</span><br><span class="line">             CREATE TABLE book （dib   列类型）；</span><br><span class="line">     （1）数值类型——引号可加可不加</span><br><span class="line">                  TINYINT（微整型），占有一个字节 范围-128~127；</span><br><span class="line">                  SMALLINT （小整型） 2个字节 -32768~32767；</span><br><span class="line">                  INT （整型）占有4个字节  -2147483648~2147483647</span><br><span class="line">                  BIGINT （大整型） 占8个字节</span><br><span class="line">                  FLOAT 单精度浮点型， 占4个字节 3.4e38          范围比INT大得多  可能产生计算误差。</span><br><span class="line">                  DOULIE   双精度浮点型       占8个字节  范围比BIGINT大得多。</span><br><span class="line">                  DECIMAL （M,D），    定点小数，不会产生计算误差， </span><br><span class="line">                   M 代表总的有效位数，D代表小数点后的有效位数	</span><br><span class="line">                  BOOL    布尔型，只有两个结果，TRUE/1 、FALSE/0   TURE和FALSE 不能添加引号；</span><br><span class="line">                   真正在存储数据的时候，会使用TINYINT。</span><br><span class="line">     （2）日期时间类型——必须添加引号</span><br><span class="line">              DATE 日期型   &apos;2018-5-22</span><br><span class="line">              TIME 时间型     ‘14.22.30’</span><br><span class="line">               DATETIME 日期时间型      ‘&apos;2018-5-22         14.22.5&apos;</span><br><span class="line">     （3）字符串类型——必须添加引号</span><br><span class="line">              VARCHAR （M）     变长字符串   不会产生空间的浪费  操作难度较慢，M最大值是65535                                                                           ZUIDAZ</span><br><span class="line">              CHAR （M）            字长只字符串 可囊产生空间浪费，</span><br><span class="line">操作速度快，M最大值是225；用于存储手机号码，身份证号等固定长度的字符。</span><br><span class="line">             TEXT    大型变长字符串。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3. 列约束</span><br><span class="line">   MySQL可以对插入的数据进行特定的验证，只有满足条件才允许插入到数据表中，否则被认为是非法的插入。</span><br><span class="line">        例如：一个人的性别只能是男或者女，一个人的年龄0~100之间。</span><br><span class="line">（1）主键约束——PRIMARY KEY</span><br><span class="line">           声明了主键列上的值不能重复出现，表中查询的记录会按照主键由小到大排序——加快查找的速度，通常主键添加到编号列中。</span><br><span class="line">        注意：一个表中只能有一个主键</span><br><span class="line">（2）唯一约束——UNIQUE	</span><br><span class="line">         声明了唯一约束的列上不能插入重复的值，允许插入NULL，而且允许插入多个NULL。</span><br><span class="line">          NULL表示空，在插入数据，暂时无法确定要保存的数据</span><br><span class="line">      例如：无法确定员工的姓名、工资。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">课后任务</span><br><span class="line">   （1）复习今天内容 ，重新编写代码</span><br><span class="line">   （2）练习：</span><br><span class="line">           创建脚本文件 xz01.sql，创建数据库xz，设备编码UTF8，进入该数据库</span><br><span class="line">           创建保存笔记本分类的表xz_laptop_family（fid、fname、laptopCount笔记本数量）</span><br><span class="line">           10   联想 2            </span><br><span class="line">           20   戴尔 2         </span><br><span class="line">           30   小米 3      </span><br><span class="line">创建笔记本数据表xz_laptop</span><br><span class="line">lid   title  price   spec(规格）  detail 详细介绍   shelfTime上架时间  isOnsale 是否在售    familtId所属的分类编号</span><br><span class="line">            添加7条数据。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/12/03/笔记/">笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/12/03/笔记/" class="article-date">
+	  <time datetime="2018-12-03T12:39:10.000Z" itemprop="datePublished">December 3, 2018</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">学习目标</span><br><span class="line">   如何在项目中保存数据——数据库——单词</span><br><span class="line">内存条——运行的数据，电脑关机 数据自动消失</span><br><span class="line">1.数据库概述</span><br><span class="line"> 数据库（Database）：以特定的结构批量的存储业务数据的软件。</span><br><span class="line"> （1）网状数据库</span><br><span class="line"> （2）层次数据库</span><br><span class="line"> ★（3） 关系型数据库</span><br><span class="line">     关系型数据库逻辑结构（RDBMS）: Relation Database Manage System</span><br><span class="line">     Server（服务器）——&gt;Database（数据库）——&gt;Table（表格）——&gt;Row（行）——&gt;Column（列）</span><br><span class="line">   1).SQlite： 微型数据库，常用于移动设备</span><br><span class="line">   2).MySQL ：开源中小型数据库，可用于各种操作系统</span><br><span class="line">   3).PoatgreSQL： 开源中小型数据库                                                                           开源（开放源代码）</span><br><span class="line">   4).SQL Server ： 微软开发的中小型数据库，只能用于Windows系统</span><br><span class="line">   5).Oracle ：Oracle公司开发的中大型数据库， 可用于各种操作系统 （收费，价格昂贵）</span><br><span class="line">   6).DB2 ：</span><br><span class="line">MySQL数据库：</span><br><span class="line">   Oracle 分支：MySQL</span><br><span class="line">    Martin分支：Maria DB     </span><br><span class="line">  (xampp是一个服务器的套装,包含了多款开源的服务器 例如：MySQL，PHP......)</span><br><span class="line">MySQL部署结构</span><br><span class="line">     服务器端软件：负责存储/维护数据</span><br><span class="line">     客户端软件：负责向服务器发起增删改查的的命令</span><br><span class="line">      （1）服务器端：</span><br><span class="line">       C:\xampp\mysql\bin\mysqld.exe    启动文件</span><br><span class="line">       C:\xampp\mysql\data     数据文件 —— 人无法看懂</span><br><span class="line">       （2）客户端：</span><br><span class="line">       C:\xampp\mysql\bin\mysql.exe      客户端软件 ——  用来连接服务器端</span><br><span class="line">      （3）连接MySQL服务器</span><br><span class="line">       mysql.exe   -h127.0.0.1（hlocalhost）  -P3306 -uroot  -p                           结尾不能加分号    </span><br><span class="line">       （简化形式） mysql   -uroot</span><br><span class="line"> 3.常用MySQL管理命令</span><br><span class="line">  quit；        退出服务器的连接</span><br><span class="line">   show databases;     显示服务器上当前所有的数据库  </span><br><span class="line">   use +数据库名称；     进入指定的数据库</span><br><span class="line">    show  tables；             显示当前数据库中所有的数据表</span><br><span class="line">       desc  表名称；     描述表中有哪些列             </span><br><span class="line">4.MySQL常用的SQL命令</span><br><span class="line">     SQL：strusturde query language ，结构化查询语言，用于对关系型数据库服务器中的数据进行增删改查的操作。</span><br><span class="line">     SQL语言最早是由IBM提出，后提交给了ISO，最终成为了数据库行业的标准语言，分为SQL-87、SQL-92、SQL-99等。</span><br><span class="line">     当前标准的SQL命令可以被绝大数的关系型数据库所支持。 </span><br><span class="line">     SQL命令的两种执行方式</span><br><span class="line">    （1）交互模式：客户端输入一行，点击回车，服务器执行一行。  适用于临时性的查看数据。</span><br><span class="line">                       mysql  -uroot  回车</span><br><span class="line">    （2）脚本模式：客户端把要执行的命令写在一个文本文件中，一次性的提交给服务器执行。  适用于批量的增删改查。</span><br><span class="line">            mysql -uroot   &lt;    C:\xammp\....\XX.sql     回车</span><br><span class="line">         SQL的语法规范</span><br><span class="line">    （1）每条SQL语句必须以英文的分号结尾一条语句可以跨越多行，见到分号认为语句结束。</span><br><span class="line">    （2）若第n行语句有错误，则词语局以及后续的语句都不能再执行。</span><br><span class="line">    （3）SQL命令不区分大小写，习惯上数据库关键字用大写，非关键字用小写</span><br><span class="line">    （4）SQL命令还可以使用单行注释：#...，和多行注释：/*...*/，</span><br><span class="line">         注释的代码不会被服务器执行。</span><br><span class="line">  </span><br><span class="line"> 日常开发中常用的SQL命令</span><br><span class="line"> （1）丢弃指定的数据库，如果存在的话</span><br><span class="line">   DROP  DATABASE IF EXISTS  文件名；</span><br><span class="line"> （2）创建新的数据库</span><br><span class="line">   CREATE DATABASE 文件名； </span><br><span class="line">（3）进入各个创建的数据库</span><br><span class="line">    USE  数据库名字；</span><br><span class="line">（4）创建保存数据的表</span><br><span class="line">    CREATE TABLE 表名称（</span><br><span class="line">      sid  INT，</span><br><span class="line">      name VARCHAR (8),</span><br><span class="line">      sex    VARCHAR (1),</span><br><span class="line">      score INT </span><br><span class="line">       ）;</span><br><span class="line">  (5) 向数据表中插入数据</span><br><span class="line"> INSERT INTO   数据表名   VALUES (&apos;1&apos;,&apos;名字‘,&apos;M&apos;,&apos;80）；</span><br><span class="line">（6）查询表中所有数据</span><br><span class="line">    SELECT   *    FROM    数据表名；</span><br><span class="line">（7）修改数据</span><br><span class="line">    UPDATE 表名称 SET    要改的类型 例如：score=&apos;66&apos;,sex=&apos;F&apos;    WHERE sid=&apos;2&apos;</span><br><span class="line">  （9）删除数据</span><br><span class="line">  DELETE     FROM   表名称       WHERE   sid=&apos;3&apos;    (删除类型）</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-内涵段子" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -301,6 +383,30 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2018/12/04/笔记03/">笔记03</a></h6>
+              <span>December 4, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2018/12/03/笔记/">笔记</a></h6>
+              <span>December 3, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2018/12/01/内涵段子/">内涵段子</a></h6>
               <span>December 1, 2018</span>
             </div>
@@ -337,7 +443,7 @@
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
