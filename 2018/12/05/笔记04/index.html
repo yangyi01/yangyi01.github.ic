@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>笔记04 | Ritchel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="1.列约束   （1）主键约束——PRIMARY KEY     (2) 唯一约束 UNIQUE   （3）非空约束     NOT NULL           生命力非空约束的列上不能插入   （4）默认值约束——DEFAUITk       可以使用DEFAULT 关键字声明默认值，有两种方式可以应用默认值     例如：      INSERT INTO xz_laptop VALUES">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记04">
+<meta property="og:url" content="http://yoursite.com/2018/12/05/笔记04/index.html">
+<meta property="og:site_name" content="Ritchel">
+<meta property="og:description" content="1.列约束   （1）主键约束——PRIMARY KEY     (2) 唯一约束 UNIQUE   （3）非空约束     NOT NULL           生命力非空约束的列上不能插入   （4）默认值约束——DEFAUITk       可以使用DEFAULT 关键字声明默认值，有两种方式可以应用默认值     例如：      INSERT INTO xz_laptop VALUES">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-05T12:25:00.220Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔记04">
+<meta name="twitter:description" content="1.列约束   （1）主键约束——PRIMARY KEY     (2) 唯一约束 UNIQUE   （3）非空约束     NOT NULL           生命力非空约束的列上不能插入   （4）默认值约束——DEFAUITk       可以使用DEFAULT 关键字声明默认值，有两种方式可以应用默认值     例如：      INSERT INTO xz_laptop VALUES">
+  
+    <link rel="alternate" href="/atom.xml" title="Ritchel" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/fashion.css">
+  <link rel="stylesheet" href="/css/glyphs.css">
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="Ritchel" rel="home"> Ritchel </a>
+            
+          </h1>
+          
+          
+            <div class="site-description">我是个杀手，莫得文化，更莫得钱</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">归档</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">关于</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-笔记04" style="width: 66%; float:left;" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      笔记04
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/12/05/笔记04/" class="article-date">
+	  <time datetime="2018-12-05T12:24:13.000Z" itemprop="datePublished">December 5, 2018</time>
+	</a>
+
+       
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code> 1.列约束
+  （1）主键约束——PRIMARY KEY
+    (2) 唯一约束 UNIQUE
+  （3）非空约束     NOT NULL
+          生命力非空约束的列上不能插入
+  （4）默认值约束——DEFAUITk
+      可以使用DEFAULT 关键字声明默认值，有两种方式可以应用默认值
+    例如：
+     INSERT INTO xz_laptop VALUES (40,&apos;苹果&apos;，DEFAULT);
+     INSERT INTO xz_laptop VALUES (40,&apos;苹果&apos;，);
+  （5） 检查约束——CHAECK
+     检查约束可以对插入的数据进行检验
+     CREATE TABLE student (
+             age TINYINT  CHECK(age&gt;=18 AND age&lt;=60)
+);
+     MySQL 不支持检查约束，会降低数据的插入速度。
+   （6）外键约束 —— FOREIGN KEY
+声明了外键约束的列，取值必须在另一个表的主键列上出现过，
+列类型要保持一致，取值可以是NULL
+        FOREIGN  KEY(familyId）REFERENCES xz_laptop_family(fid)
+2.MySQL 中的自增列
+       AUTO_INCREMENT：自动增长   假入了一个列声明了自增列，无需手动赋值，之间设置为NULL
+    会获取当前的最大值，然后加1插入。
+                 注意：
+                          自增列允许手动赋值
+                          只适用于整数型的主键列上
+ 3. 简单查询
+ （1）查询特定的列
+   示例：查询所有员工的姓名‘工资、生日
+  SELECT ename,salary,brithday FROM emp;
+ （2）查询所有的列
+          SELECT * FROM emp；
+      SELECT eid,ename,sex,birthday,salary,deptId FROM emp;    
+  （3）给列起别名
+    示例：查询所有员工的姓名和工资，使用汉字的别名显示
+    SELECT ename AS 姓名,salary AS 工资 FROM emp; 
+         SELECT  eid AS 编号,ename AS 姓名,sex AS 性别,birthday AS 生日 FROM emp;
+   注意：AS 关键字是可以省略的，但是需要保留空格。
+  （4）只显示不同的记录/合并相同的记录
+       示例： 查询出员工都在哪些部门
+      SELECT DISTINCT deptId FROM emp;
+      SELECT DISTINCT sex FROM emp;
+  （5）在查询时执行计算
+      示例：计算2*3/4-8+10
+   SELECT ename,salary*12 FROM emp;
+  SELECT ename 姓名,(salary+500)*12+5000 AS 年薪 FROM emp;
+   （6）对查询的结果集进行排序
+         示例：查询所有的部门，对结果按照部门编号升序排序
+          SELECT * FROM dept ORDER BY did ASC;                                   #ascendant   向上的；
+        示例：查询所有的部门，对结果按照部门编号降序排序             
+          SELECT * FROM dept ORDER BY did DESC;                                 #descendant   向下的；
+          SELECT * FROM emp ORDER BY birthday DESC;  
+          SELECT * FROM emp ORDER BY salary DESC,ename;
+          ORDER BY   可以按照 数值  日期 时间 字符串来排序，
+          默认是按照ASC升序排列。
+     （7）条件查询                               
+          示例：查询出编号为5的员工所有信息
+          SELECT *FROM emp WHERE eid=5;
+          SELECT eid,salary,birthday FROM emp WHERE ename=&apos;king&apos;;
+          SELECT * FROM  emp WHERE deptId=20;
+          SELECT * FROM  emp WHERE salary&gt;=5000;
+          &gt;=   &lt;=   &lt;  &gt; =  !=(不等于）
+          SELECT * FROM  emp WHERE deptId!=10;
+          SELECT * FROM  emp WHERE deptId IS null;                                        null只能用  IS 
+          SELECT * FROM  emp WHERE deptId    IS  NOT null;
+          SELECT * FROM  emp WHERE salary&gt;6000 AND sex=0;                        用 AND(并且） 连接
+
+          SELECT * FROM  emp WHERE salary&gt;=5000 AND salary&lt;=7000; 
+          SELECT * FROM  emp WHERE salary BETWEEN 5000 AND 7000;       (NOT) BETWEEN ..... AND (不）在...之间 
+          SELECT * FROM  emp WHERE salary&lt;=5000 OR salary&gt;=7000;                OR（或者） 连接 满足两个条件
+          SELECT * FROM  emp WHERE salary NOT BETWEEN 5000 AND 7000;                                                                    SELECT * FROM emp WHERE deptId IN (10,30);     NOT  IN    不 在...         IN 在....
+
+
+            IS NULL / IS NOT NULL
+            AND /OR 
+           BETWEEN.. AND.../ NOT BETWEE...AND...
+           IN （）/NOT IN （） 
+     注意：删除、更改、查询都可以结合条件查询。
+      （8）模糊条件查询
+             示例：查询出姓名中含有字母e的员工信息
+           SELECT * FROM emp WHERE ename LIKE &apos;%e%&apos;;    含有e的                      %  表示可以有任意一个字符
+           SELECT * FROM emp WHERE ename LIKE &apos;%e&apos;;      位数为e的
+           SELECT * FROM emp WHERE ename LIKE &apos;%e_&apos;;    倒数第二个为e的
+             SQL中提供了两个模糊查询的字符
+             % 可以匹配任意多个字符  &gt;=0
+             _   可以匹配任意一个字符  =1
+           注意：以上 两个匹配不能“=”使用，必须和“LIKE”使用。
+    （9） 分页查询
+          假如查询的结果集中有太多的数据，一次显示不完，可以分页显示。
+              需要有两个条件   ：当前的页码、每页的数据量
+         SELECT * FROM emp  LIMIT start,count;      
+           start :是一个数字，表示从结果集中的哪一条开始读取，第一条称为0.                   
+        每一页开始的算法           
+          start=（页码-1）*count
+         count：是一个数字，最多读取的行数
+假设每一页显示五条记录
+ 第一页：SELECT* FROM emp LIMIT 0,&apos;5&apos;;
+
+
+
+
+
+
+课后任务：
+  （1）复习今天内容，删除代码，保留注释，重新编写代码
+  （2）练习：
+        查询出工资为8000以上的女员工的姓名、性别、生日、结果集按照工资降序排序，取前三人。
+  （3） 查看 “学子商城”结构图。
+</code></pre>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/04/笔记03/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">笔记03</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav">无</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2018 Ritchel All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

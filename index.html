@@ -104,6 +104,155 @@
         
           <section id="main">
   
+    <article id="post-笔记04" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/12/05/笔记04/">笔记04</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/12/05/笔记04/" class="article-date">
+	  <time datetime="2018-12-05T12:24:13.000Z" itemprop="datePublished">December 5, 2018</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code> 1.列约束
+  （1）主键约束——PRIMARY KEY
+    (2) 唯一约束 UNIQUE
+  （3）非空约束     NOT NULL
+          生命力非空约束的列上不能插入
+  （4）默认值约束——DEFAUITk
+      可以使用DEFAULT 关键字声明默认值，有两种方式可以应用默认值
+    例如：
+     INSERT INTO xz_laptop VALUES (40,&apos;苹果&apos;，DEFAULT);
+     INSERT INTO xz_laptop VALUES (40,&apos;苹果&apos;，);
+  （5） 检查约束——CHAECK
+     检查约束可以对插入的数据进行检验
+     CREATE TABLE student (
+             age TINYINT  CHECK(age&gt;=18 AND age&lt;=60)
+);
+     MySQL 不支持检查约束，会降低数据的插入速度。
+   （6）外键约束 —— FOREIGN KEY
+声明了外键约束的列，取值必须在另一个表的主键列上出现过，
+列类型要保持一致，取值可以是NULL
+        FOREIGN  KEY(familyId）REFERENCES xz_laptop_family(fid)
+2.MySQL 中的自增列
+       AUTO_INCREMENT：自动增长   假入了一个列声明了自增列，无需手动赋值，之间设置为NULL
+    会获取当前的最大值，然后加1插入。
+                 注意：
+                          自增列允许手动赋值
+                          只适用于整数型的主键列上
+ 3. 简单查询
+ （1）查询特定的列
+   示例：查询所有员工的姓名‘工资、生日
+  SELECT ename,salary,brithday FROM emp;
+ （2）查询所有的列
+          SELECT * FROM emp；
+      SELECT eid,ename,sex,birthday,salary,deptId FROM emp;    
+  （3）给列起别名
+    示例：查询所有员工的姓名和工资，使用汉字的别名显示
+    SELECT ename AS 姓名,salary AS 工资 FROM emp; 
+         SELECT  eid AS 编号,ename AS 姓名,sex AS 性别,birthday AS 生日 FROM emp;
+   注意：AS 关键字是可以省略的，但是需要保留空格。
+  （4）只显示不同的记录/合并相同的记录
+       示例： 查询出员工都在哪些部门
+      SELECT DISTINCT deptId FROM emp;
+      SELECT DISTINCT sex FROM emp;
+  （5）在查询时执行计算
+      示例：计算2*3/4-8+10
+   SELECT ename,salary*12 FROM emp;
+  SELECT ename 姓名,(salary+500)*12+5000 AS 年薪 FROM emp;
+   （6）对查询的结果集进行排序
+         示例：查询所有的部门，对结果按照部门编号升序排序
+          SELECT * FROM dept ORDER BY did ASC;                                   #ascendant   向上的；
+        示例：查询所有的部门，对结果按照部门编号降序排序             
+          SELECT * FROM dept ORDER BY did DESC;                                 #descendant   向下的；
+          SELECT * FROM emp ORDER BY birthday DESC;  
+          SELECT * FROM emp ORDER BY salary DESC,ename;
+          ORDER BY   可以按照 数值  日期 时间 字符串来排序，
+          默认是按照ASC升序排列。
+     （7）条件查询                               
+          示例：查询出编号为5的员工所有信息
+          SELECT *FROM emp WHERE eid=5;
+          SELECT eid,salary,birthday FROM emp WHERE ename=&apos;king&apos;;
+          SELECT * FROM  emp WHERE deptId=20;
+          SELECT * FROM  emp WHERE salary&gt;=5000;
+          &gt;=   &lt;=   &lt;  &gt; =  !=(不等于）
+          SELECT * FROM  emp WHERE deptId!=10;
+          SELECT * FROM  emp WHERE deptId IS null;                                        null只能用  IS 
+          SELECT * FROM  emp WHERE deptId    IS  NOT null;
+          SELECT * FROM  emp WHERE salary&gt;6000 AND sex=0;                        用 AND(并且） 连接
+
+          SELECT * FROM  emp WHERE salary&gt;=5000 AND salary&lt;=7000; 
+          SELECT * FROM  emp WHERE salary BETWEEN 5000 AND 7000;       (NOT) BETWEEN ..... AND (不）在...之间 
+          SELECT * FROM  emp WHERE salary&lt;=5000 OR salary&gt;=7000;                OR（或者） 连接 满足两个条件
+          SELECT * FROM  emp WHERE salary NOT BETWEEN 5000 AND 7000;                                                                    SELECT * FROM emp WHERE deptId IN (10,30);     NOT  IN    不 在...         IN 在....
+
+
+            IS NULL / IS NOT NULL
+            AND /OR 
+           BETWEEN.. AND.../ NOT BETWEE...AND...
+           IN （）/NOT IN （） 
+     注意：删除、更改、查询都可以结合条件查询。
+      （8）模糊条件查询
+             示例：查询出姓名中含有字母e的员工信息
+           SELECT * FROM emp WHERE ename LIKE &apos;%e%&apos;;    含有e的                      %  表示可以有任意一个字符
+           SELECT * FROM emp WHERE ename LIKE &apos;%e&apos;;      位数为e的
+           SELECT * FROM emp WHERE ename LIKE &apos;%e_&apos;;    倒数第二个为e的
+             SQL中提供了两个模糊查询的字符
+             % 可以匹配任意多个字符  &gt;=0
+             _   可以匹配任意一个字符  =1
+           注意：以上 两个匹配不能“=”使用，必须和“LIKE”使用。
+    （9） 分页查询
+          假如查询的结果集中有太多的数据，一次显示不完，可以分页显示。
+              需要有两个条件   ：当前的页码、每页的数据量
+         SELECT * FROM emp  LIMIT start,count;      
+           start :是一个数字，表示从结果集中的哪一条开始读取，第一条称为0.                   
+        每一页开始的算法           
+          start=（页码-1）*count
+         count：是一个数字，最多读取的行数
+假设每一页显示五条记录
+ 第一页：SELECT* FROM emp LIMIT 0,&apos;5&apos;;
+
+
+
+
+
+
+课后任务：
+  （1）复习今天内容，删除代码，保留注释，重新编写代码
+  （2）练习：
+        查询出工资为8000以上的女员工的姓名、性别、生日、结果集按照工资降序排序，取前三人。
+  （3） 查看 “学子商城”结构图。
+</code></pre>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-笔记03" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -383,6 +532,18 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2018/12/05/笔记04/">笔记04</a></h6>
+              <span>December 5, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2018/12/04/笔记03/">笔记03</a></h6>
               <span>December 4, 2018</span>
             </div>
@@ -443,7 +604,7 @@
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
